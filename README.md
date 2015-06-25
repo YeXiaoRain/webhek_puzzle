@@ -26,7 +26,7 @@ Edit the GAMESIZE at line 2
 #define GAMESIZE 20
 ```
 
-to the number you need too solve.
+to the number you need to solve.
 
 **Step 2**
 
