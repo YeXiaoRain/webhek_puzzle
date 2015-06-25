@@ -1,15 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #define GAMESIZE 20
-long long tp[GAMESIZE+1]={0};
-long long twopower(int p){
-	if(tp[p])
-		return tp[p];
-	if(p%2)
-		return tp[p]=2*twopower(p/2)*twopower(p/2);
-	else
-		return tp[p]=twopower(p/2)*twopower(p/2);
-}
 int blockval(int box[][GAMESIZE],int i,int j){
 	int res=box[i][j];
 	if(i>0)
@@ -61,8 +52,7 @@ void printres(long long val){
 	return ;
 }
 int main(){
-	tp[0]=1;
-	int i,maxi=twopower(GAMESIZE);
+	long long i,maxi=((long long)1)<<GAMESIZE;
 	for(i=0;i<maxi;i++){
 		if(tryi(i))
 			break;
