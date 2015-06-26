@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-#define GAMESIZE 15
+#define GAMESIZE 20
 int blockval(int box[][GAMESIZE],int i,int j){
 	int res=box[i][j];
 	if(i>0)
