@@ -130,7 +130,7 @@ rapidGameSolver.solveGame = function(game) {
         b[i] = b[j];
         b[j] = tmp;
 
-        for(j = i + 1;j < nx;j ++)
+        for(j = j + 1;j < nx;j ++)
             if(a[j][i]) {
                 for(k = i;k < nx;k ++)
                     a[j][k] ^= a[i][k];
@@ -141,14 +141,16 @@ rapidGameSolver.solveGame = function(game) {
 
     // solve
     for(i = nx - 1;i >= 0;i --) {
-        // arbitary
-        if(! a[i][i])
-            console.log("Wrong!No solution"+i);
-
         // accumulate
         x[i] = b[i];
         for(j = i + 1;j < nx;j ++)
             x[i] ^= (a[i][j] & x[j]);
+
+        if(! a[i][i]){
+			if(x[i]!=0)
+				console.log("Wrong!No solution "+i+'/('+h+','+w+')');
+			continue ;
+		}
     }
 
     // render the solution
